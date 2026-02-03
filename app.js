@@ -426,44 +426,59 @@ const CosmicJourney = () => {
           </div>
         </div>
       )
-    },
-    { // STAGE 9
-      title: "The shape of love",
-      content: (
-        <div className="page-turn">
-          <div className="cosmic-page">
-            <p className="text-4xl text-purple-100 mb-12 breathing-text">
-              What if you need both?
-            </p>
-            <p className="text-3xl text-cyan-200 mb-16">
-              To move forward <span className="italic">and</span> return home.
-            </p>
-            {!showInfinity ? (
-              <button onClick={() => { setShowCircle(false); setTimeout(() => setShowInfinity(true), 100); }} className="cosmic-btn text-2xl px-16 py-6 pulse-soft">
-                Show me the shape
+   { // STAGE 9
+  title: "The shape of love",
+  content: (
+    <div className="page-turn">
+      <div className="cosmic-page">
+        <p className="text-4xl text-purple-100 mb-12 breathing-text">
+          What if you need both?
+        </p>
+        <p className="text-3xl text-cyan-200 mb-16">
+          To move forward <span className="italic">and</span> return home.
+        </p>
+        {!showInfinity ? (
+          <button 
+            onClick={() => { 
+              setShowCircle(false); 
+              setShowInfinity(true); 
+            }} 
+            className="cosmic-btn text-2xl px-16 py-6 pulse-soft"
+          >
+            Show me the shape
+          </button>
+        ) : (
+          <div className="space-y-12">
+            <canvas 
+              ref={canvasRef} 
+              className="rounded-2xl border-2 border-cyan-500/50 shadow-2xl glow-strong"
+            ></canvas>
+            
+            <div className="cosmic-card p-12 bg-purple-900/20 border-cyan-500/30 max-w-4xl">
+              <p className="text-5xl text-cyan-200 mb-8 glow-text">∞</p>
+              <p className="text-3xl text-purple-100 mb-6">The infinity loop.</p>
+              <p className="text-2xl text-purple-200 leading-relaxed">
+                You keep moving forward.<br/>
+                But the path curves back through the center.<br/>
+                You pass through home—through zero—transformed.<br/>
+                <span className="text-yellow-300">Not erased. Reborn.</span>
+              </p>
+            </div>
+            
+            <div className="text-center">
+              <button 
+                onClick={() => setStage(10)} 
+                className="cosmic-btn text-2xl px-16 py-6 pulse-soft"
+              >
+                But what creates this shape? →
               </button>
-            ) : (
-              <div className="space-y-12">
-                <canvas ref={canvasRef} className="rounded-2xl border-2 border-cyan-500/50 shadow-2xl glow-strong"></canvas>
-                <div className="cosmic-card p-12 bg-purple-900/20 border-cyan-500/30 max-w-4xl">
-                  <p className="text-5xl text-cyan-200 mb-8 glow-text">∞</p>
-                  <p className="text-3xl text-purple-100 mb-6">The infinity loop.</p>
-                  <p className="text-2xl text-purple-200 leading-relaxed">
-                    You keep moving forward.<br/>
-                    But the path itself curves back.<br/>
-                    You pass through home, transformed.<br/>
-                    <span className="text-yellow-300">Not erased. Reborn.</span>
-                  </p>
-                </div>
-                <button onClick={() => setStage(10)} className="cosmic-btn text-xl px-12 py-4">
-                  But what creates this shape?
-                </button>
-              </div>
-            )}
+            </div>
           </div>
-        </div>
-      )
-    },
+        )}
+      </div>
+    </div>
+  )
+},
     { // STAGE 10
       title: "The force that pulls you home",
       content: (
